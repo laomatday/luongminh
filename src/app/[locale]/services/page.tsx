@@ -1,0 +1,9 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {notFound} from 'next/navigation';
+import {serviceGroups} from '@/lib/content';
+import {localePath,isLocale,ui} from '@/lib/i18n';
+import {pageMetadata} from '@/lib/seo';
+import {Arrow} from '@/components/Arrow';
+export async function generateMetadata({params}:{params:Promise<{locale:string}>}):Promise<Metadata>{const {locale}=await params;if(!isLocale(locale))notFound();return pageMetadata(locale,locale==='vi'?'Lĩnh vực hoạt động':'Capabilities',locale==='vi'?'Thi công công nghiệp, dân dụng và hạ tầng kỹ thuật.':'Industrial, civil and infrastructure construction capabilities.','services');}
+export default async function Services({params}:{params:Promise<{locale:string}>}){const {locale}=await params;if(!isLocale(locale))notFound();return <div className="page services-page"><section className="subpage-head shell"><span>EXPERTISE / LUONG MINH</span><h1>{locale==='vi'?<>Năng lực<br/><em>để thực thi.</em></>:<>Engineering<br/><em>capabilities.</em></>}</h1><p>{locale==='vi'?'Các nhóm chuyên môn công bố trên website Lương Minh. Hồ sơ chi tiết sẽ được bổ sung khi có bằng chứng và tư liệu được doanh nghiệp phê duyệt.':'Our public portfolio spans three primary construction disciplines. Detailed credentials are added only with verified supporting evidence.'}</p></section><div className="services-index shell">{serviceGroups.map((s,i)=><section className="service-feature" key={s.id}><div className="service-image"><img src={`/visuals/${s.visual}`} alt=""/><span>{ui[locale].sourceInfo}</span></div><div className="service-info"><span>0{i+1} / LMC CAPABILITIES</span><h2>{s.title[locale]}</h2><p>{s.desc[locale]}</p><Link className="text-arrow" href={localePath(locale,'contact')}>{ui[locale].cta}<Arrow size={20}/></Link></div></section>)}</div></div>}

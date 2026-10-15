@@ -1,0 +1,1 @@
+export function Arrow({size=21}:{size?:number}){return <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 19 19 5 M8 5h11v11"/></svg>}

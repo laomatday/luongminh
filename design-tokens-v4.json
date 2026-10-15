@@ -1,0 +1,21 @@
+{
+  "$description": "LMC Architectural Precision V4 design tokens. Values are a proposal and must be confirmed against the official brand.",
+  "color": {
+    "ink": {"$type": "color", "$value": "#1E2A27"},
+    "night": {"$type": "color", "$value": "#101F1B"},
+    "paper": {"$type": "color", "$value": "#F1F1EB"},
+    "paperAlt": {"$type": "color", "$value": "#E6E8E0"},
+    "accentCopper": {"$type": "color", "$value": "#C47853"},
+    "accentSage": {"$type": "color", "$value": "#D0D7BD"}
+  },
+  "motion": {
+    "easeOut": {"$type": "cubicBezier", "$value": [0.22, 1, 0.36, 1]},
+    "hover": {"$type": "duration", "$value": "240ms"},
+    "showcase": {"$type": "duration", "$value": "650ms"},
+    "hero": {"$type": "duration", "$value": "850ms"}
+  },
+  "layout": {
+    "gutterDesktop": {"$type": "dimension", "$value": "88px"},
+    "gutterMobile": {"$type": "dimension", "$value": "18px"}
+  }
+}
