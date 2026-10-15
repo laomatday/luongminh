@@ -15,7 +15,7 @@ export default function SiteChrome({locale,children}:{locale:Locale;children:Rea
  const labels=ui[locale];
  useEffect(()=>{const fn=()=>setScrolled(window.scrollY>24);fn();window.addEventListener('scroll',fn,{passive:true});return ()=>window.removeEventListener('scroll',fn);},[path]);
  useEffect(()=>{setMenu(false);},[path]);
- useEffect(()=>{document.body.style.overflow=menu?'hidden':'';return()=>{document.body.style.overflow='';};},[menu]);
+ useEffect(()=>{document.body.style.overflow=menu?'hidden':'';const handle=(e:KeyboardEvent)=>{if(e.key==='Escape')setMenu(false);};if(menu)document.addEventListener('keydown',handle);return()=>{document.body.style.overflow='';document.removeEventListener('keydown',handle);};},[menu]);
  const suffix=path.replace(/^\/(vi|en)/,'')||'';
  const targetOther=localePath(locale==='vi'?'en':'vi',suffix);
  const entries:[string,string][]=[['',labels.home],['projects',labels.projects],['services',labels.services],['3d','3D Explorer'],['about',labels.about],['contact',labels.contact]];
