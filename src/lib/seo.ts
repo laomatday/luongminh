@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import type {Locale} from './i18n';
 import {localePath} from './i18n';
-export const baseUrl=process.env.NEXT_PUBLIC_SITE_URL||'http://localhost:3000';
+export const baseUrl=process.env.NEXT_PUBLIC_SITE_URL||'https://luongminh.vercel.app';
 export function pageMetadata(locale:Locale,title:string,description:string,path:string=''):Metadata{
  const canonical=localePath(locale,path);
  return {
